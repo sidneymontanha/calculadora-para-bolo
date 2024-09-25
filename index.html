@@ -11,26 +11,44 @@
   <div class="container">
     <h1>Calculadora de Custo e Lucro de Receitas de Bolo</h1>
     
+    <!-- Ingredientes -->
     <form id="recipeForm">
       <div id="ingredientList">
         <label>Ingredientes:</label>
         <div class="ingredient">
           <input type="text" placeholder="Nome do Ingrediente" required>
-          <input type="number" placeholder="Preço (R$)" required>
+          <input type="number" placeholder="Qtd. por Quilo em Estoque (Kg)" required>
+          <input type="number" placeholder="Preço por Quilo (R$)" required>
+          <input type="number" placeholder="Qtd. Usada na Receita (g)" required>
         </div>
       </div>
       
       <button type="button" id="addIngredient">Adicionar Ingrediente</button>
-      
+
+      <!-- Serviços -->
+      <div id="serviceList">
+        <label>Serviços:</label>
+        <div class="service">
+          <input type="text" placeholder="Tipo de Serviço" required>
+          <input type="number" placeholder="Qtd. de Horas Disponível" required>
+          <input type="number" placeholder="Preço por Hora (R$)" required>
+          <input type="number" placeholder="Qtd. de Minutos para a Receita" required>
+        </div>
+      </div>
+
+      <button type="button" id="addService">Adicionar Serviço</button>
+
+      <!-- Margem de Lucro -->
       <label for="profitMargin">Margem de Lucro (%):</label>
       <input type="number" id="profitMargin" placeholder="Ex: 30" required>
 
       <button type="submit">Calcular Preço de Venda</button>
     </form>
 
+    <!-- Resultado -->
     <div class="result">
       <h2>Resultado:</h2>
-      <p id="totalCost">Custo Total dos Ingredientes: R$ <span id="costValue">0.00</span></p>
+      <p id="totalCost">Custo Total (Ingredientes + Serviços): R$ <span id="costValue">0.00</span></p>
       <p id="sellingPrice">Preço de Venda: R$ <span id="priceValue">0.00</span></p>
     </div>
   </div>
