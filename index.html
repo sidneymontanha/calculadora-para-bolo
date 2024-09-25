@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Custo e Lucro de Receitas de Bolo</title>
+  <link rel="stylesheet" href="css/script.css">
+  <script defer src="js/script.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Calculadora de Custo e Lucro de Receitas de Bolo</h1>
+    
+    <form id="recipeForm">
+      <div id="ingredientList">
+        <label>Ingredientes:</label>
+        <div class="ingredient">
+          <input type="text" placeholder="Nome do Ingrediente" required>
+          <input type="number" placeholder="Preço (R$)" required>
+        </div>
+      </div>
+      
+      <button type="button" id="addIngredient">Adicionar Ingrediente</button>
+      
+      <label for="profitMargin">Margem de Lucro (%):</label>
+      <input type="number" id="profitMargin" placeholder="Ex: 30" required>
+
+      <button type="submit">Calcular Preço de Venda</button>
+    </form>
+
+    <div class="result">
+      <h2>Resultado:</h2>
+      <p id="totalCost">Custo Total dos Ingredientes: R$ <span id="costValue">0.00</span></p>
+      <p id="sellingPrice">Preço de Venda: R$ <span id="priceValue">0.00</span></p>
+    </div>
+  </div>
+
+  
+</body>
+</html>
