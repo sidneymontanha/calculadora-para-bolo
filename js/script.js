@@ -84,7 +84,7 @@ document.getElementById('recipeForm').addEventListener('submit', function(event)
 
     // Cálculo do custo total por ingrediente (preço por grama * quantidade usada em gramas)
     totalCostIngredients += (pricePerGram * qtyUsedGrams);
-    console.log(totalCostIngredients)
+    //console.log(totalCostIngredients)
   });
 
   // Cálculo do custo dos serviços
