@@ -116,3 +116,12 @@ document.getElementById('recipeForm').addEventListener('submit', function(event)
   document.getElementById('costValue').textContent = totalCost.toFixed(2);
   document.getElementById('priceValue').textContent = sellingPrice.toFixed(2);
 })
+
+// Seleciona o ícone do menu hamburguer e a lista de itens do menu
+const hamburger = document.querySelector('.hamburger');
+const menu = document.querySelector('.menu');
+
+// Função para alternar o menu
+hamburger.addEventListener('click', () => {
+  menu.classList.toggle('active');
+});
