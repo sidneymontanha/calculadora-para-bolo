@@ -16,7 +16,6 @@ body {
   height: 100vh;
 }
 
-/* Header */
 header {
   display: flex;
   justify-content: space-between;
@@ -64,7 +63,6 @@ header {
   border-radius: 5px;
 }
 
-/* Hamburguer Menu para dispositivos móveis */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -79,6 +77,15 @@ header {
   height: 4px;
   background-color: white;
   border-radius: 2px;
+}
+
+/* Seções */
+.section {
+  padding: 20px;
+}
+
+.result {
+  margin-top: 20px;
 }
 
 /* Responsividade */

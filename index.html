@@ -8,23 +8,22 @@
   <script defer src="js/script.js"></script>
 </head>
 <body>
+  <!-- Header -->
   <header>
     <div class="logo">
-      <a href="index.html">
+      <a href="#" data-section="home">
         <img src="image/poker-vertical.png" alt="Logo da Marca">
       </a>
-      <span class="brand-name">THE UNION</span>
+      <span class="brand-name">Minha Marca</span>
     </div>
 
     <nav class="navbar">
       <ul class="menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#">Conta de Usuário</a></li>
-        <li><a href="#">Configurações</a></li>
-        <li><a href="#">Histórico</a></li>
-        <li><a href="#">Ajuda</a></li>
+        <li><a href="#" data-section="home">Home</a></li>
+        <li><a href="#" data-section="calculadora">Calculadora</a></li>
+        <li><a href="#" data-section="conta">Conta de Usuário</a></li>
+        <li><a href="#" data-section="configuracoes">Configurações</a></li>
       </ul>
-
       <!-- Ícone de Menu Responsivo (Hamburguer) -->
       <div class="hamburger">
         <span></span>
@@ -33,50 +32,68 @@
       </div>
     </nav>
   </header>
-  <div class="container">
-    <h1>Calculadora de Custo e Lucro de Receitas de Bolo</h1>
-    
-    <!-- Ingredientes -->
-    <form id="recipeForm">
-      <div id="ingredientList">
-        <label>Ingredientes:</label>
-        <div class="ingredient">
-          <input type="text" placeholder="Nome do Ingrediente" required>
-          <input type="number" placeholder="Qtd. por Quilo em Estoque (Kg)" required>
-          <input type="number" placeholder="Preço por Quilo (R$)" required>
-          <input type="number" placeholder="Qtd. Usada na Receita (g)" required>
+
+  <!-- Conteúdo Dinâmico -->
+  <main id="content">
+    <!-- Seção Home -->
+    <section id="home" class="section">
+      <h1>Bem-vindo à Minha Marca</h1>
+      <p>Este é o conteúdo da página inicial.</p>
+    </section>
+
+    <!-- Seção Calculadora -->
+    <section id="calculadora" class="section" style="display:none;">
+      <h1>Calculadora de Custo e Lucro</h1>
+      <form id="recipeForm">
+        <!-- Ingredientes -->
+        <div id="ingredientList">
+          <label>Ingredientes:</label>
+          <div class="ingredient">
+            <input type="text" placeholder="Nome do Ingrediente" required>
+            <input type="number" placeholder="Qtd. por Quilo em Estoque (Kg)" required>
+            <input type="number" placeholder="Preço por Quilo (R$)" required>
+            <input type="number" placeholder="Qtd. Usada na Receita (g)" required>
+          </div>
         </div>
-      </div>
-      
-      <button type="button" id="addIngredient">Adicionar Ingrediente</button>
+        <button type="button" id="addIngredient">Adicionar Ingrediente</button>
 
-      <!-- Serviços -->
-      <div id="serviceList">
-        <label>Serviços:</label>
-        <div class="service">
-          <input type="text" placeholder="Tipo de Serviço" required>
-          <input type="number" placeholder="Qtd. de Horas Disponível" required>
-          <input type="number" placeholder="Preço por Hora (R$)" required>
-          <input type="number" placeholder="Qtd. de Minutos para a Receita" required>
+        <!-- Serviços -->
+        <div id="serviceList">
+          <label>Serviços:</label>
+          <div class="service">
+            <input type="text" placeholder="Tipo de Serviço" required>
+            <input type="number" placeholder="Qtd. de Horas Disponível" required>
+            <input type="number" placeholder="Preço por Hora (R$)" required>
+            <input type="number" placeholder="Qtd. de Minutos para a Receita" required>
+          </div>
         </div>
+        <button type="button" id="addService">Adicionar Serviço</button>
+
+        <!-- Margem de Lucro -->
+        <label for="profitMargin">Margem de Lucro (%):</label>
+        <input type="number" id="profitMargin" placeholder="Ex: 30" required>
+
+        <button type="submit">Calcular Preço de Venda</button>
+      </form>
+      <div class="result">
+        <h2>Resultado:</h2>
+        <p id="totalCost">Custo Total (Ingredientes + Serviços): R$ <span id="costValue">0.00</span></p>
+        <p id="sellingPrice">Preço de Venda: R$ <span id="priceValue">0.00</span></p>
       </div>
+    </section>
 
-      <button type="button" id="addService">Adicionar Serviço</button>
+    <!-- Seção Conta de Usuário -->
+    <section id="conta" class="section" style="display:none;">
+      <h1>Minha Conta de Usuário</h1>
+      <p>Gerencie sua conta de usuário aqui.</p>
+    </section>
 
-      <!-- Margem de Lucro -->
-      <label for="profitMargin">Margem de Lucro (%):</label>
-      <input type="number" id="profitMargin" placeholder="Ex: 30" required>
-
-      <button type="submit">Calcular Preço de Venda</button>
-    </form>
-
-    <!-- Resultado -->
-    <div class="result">
-      <h2>Resultado:</h2>
-      <p id="totalCost">Custo Total (Ingredientes + Serviços): R$ <span id="costValue">0.00</span></p>
-      <p id="sellingPrice">Preço de Venda: R$ <span id="priceValue">0.00</span></p>
-    </div>
-  </div>
+    <!-- Seção Configurações -->
+    <section id="configuracoes" class="section" style="display:none;">
+      <h1>Configurações</h1>
+      <p>Ajuste suas preferências e configurações aqui.</p>
+    </section>
+  </main>
 
   
 </body>
