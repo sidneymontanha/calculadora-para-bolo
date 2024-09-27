@@ -83,16 +83,74 @@
     </section>
 
     <!-- Seção Conta de Usuário -->
-    <section id="conta" class="section" style="display:none;">
-      <h1>Minha Conta de Usuário</h1>
-      <p>Gerencie sua conta de usuário aqui.</p>
-    </section>
+<section id="conta" class="section" style="display:none;">
+  <h1>Minha Conta de Usuário</h1>
+  <form id="userForm">
+    <div class="user-profile">
+      <img src="image/poker-vertical.png" alt="Avatar" id="userAvatar">
+      <label for="avatarUpload">Alterar Avatar:</label>
+      <input type="file" id="avatarUpload">
+    </div>
 
-    <!-- Seção Configurações -->
-    <section id="configuracoes" class="section" style="display:none;">
-      <h1>Configurações</h1>
-      <p>Ajuste suas preferências e configurações aqui.</p>
-    </section>
+    <div class="form-group">
+      <label for="userName">Nome:</label>
+      <input type="text" id="userName" placeholder="Seu Nome" value="João da Silva" required>
+    </div>
+
+    <div class="form-group">
+      <label for="userEmail">Email:</label>
+      <input type="email" id="userEmail" placeholder="email@exemplo.com" value="joao@exemplo.com" required>
+    </div>
+
+    <div class="form-group">
+      <label for="userPassword">Senha Atual:</label>
+      <input type="password" id="userPassword" placeholder="********" required>
+    </div>
+
+    <div class="form-group">
+      <label for="newPassword">Nova Senha:</label>
+      <input type="password" id="newPassword" placeholder="Nova senha">
+    </div>
+
+    <button type="submit">Salvar Alterações</button>
+  </form>
+</section>
+
+<!-- Seção Configurações -->
+<section id="configuracoes" class="section" style="display:none;">
+  <h1>Configurações</h1>
+  <form id="settingsForm">
+    <div class="form-group">
+      <label for="language">Idioma:</label>
+      <select id="language">
+        <option value="pt">Português</option>
+        <option value="en">Inglês</option>
+        <option value="es">Espanhol</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Notificações:</label>
+      <label for="emailNotifications">
+        <input type="checkbox" id="emailNotifications" checked> Receber notificações por email
+      </label>
+      <label for="smsNotifications">
+        <input type="checkbox" id="smsNotifications"> Receber notificações por SMS
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for="theme">Tema:</label>
+      <select id="theme">
+        <option value="light">Claro</option>
+        <option value="dark">Escuro</option>
+      </select>
+    </div>
+
+    <button type="submit">Salvar Configurações</button>
+  </form>
+</section>
+
   </main>
 
   
