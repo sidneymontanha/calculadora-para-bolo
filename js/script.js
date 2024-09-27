@@ -119,10 +119,10 @@ if (addServiceButton) {
     serviceName.placeholder = 'Tipo de Serviço';
     serviceName.required = true;
 
-    const serviceHours = document.createElement('input');
+    /*const serviceHours = document.createElement('input');
     serviceHours.type = 'number';
     serviceHours.placeholder = 'Qtd. de Horas Disponível';
-    serviceHours.required = true;
+    serviceHours.required = true;*/
 
     const servicePricePerHour = document.createElement('input');
     servicePricePerHour.type = 'number';
@@ -135,7 +135,7 @@ if (addServiceButton) {
     serviceMinutesUsed.required = true;
 
     div.appendChild(serviceName);
-    div.appendChild(serviceHours);
+    //div.appendChild(serviceHours);
     div.appendChild(servicePricePerHour);
     div.appendChild(serviceMinutesUsed);
 
@@ -148,7 +148,8 @@ const recipeForm = document.getElementById('recipeForm');
 if (recipeForm) {
   recipeForm.addEventListener('submit', function(event) {
     event.preventDefault();
-    
+
+
     // Cálculo do custo dos ingredientes
     const ingredients = document.querySelectorAll('.ingredient');
     let totalCostIngredients = 0;
@@ -169,8 +170,8 @@ if (recipeForm) {
     let totalCostServices = 0;
 
     services.forEach(service => {
-      const pricePerHour = parseFloat(service.children[2].value);
-      const minutesUsed = parseFloat(service.children[3].value);
+      const pricePerHour = parseFloat(service.children[1].value);
+      const minutesUsed = parseFloat(service.children[2].value);
 
       // Converter minutos usados para horas
       const hoursUsed = minutesUsed / 60;

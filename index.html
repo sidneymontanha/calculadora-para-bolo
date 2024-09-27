@@ -47,22 +47,52 @@
       <form id="recipeForm">
         <!-- Ingredientes -->
         <div id="ingredientList">
-          <label>Ingredientes:</label>
+          <div class="label">
+            
+              <label>Ingredientes:</label>
+          
+            
+              <label>Qtd de estoque:</label>
+            
+           
+              <label>Ppreço por kilo:</label>
+            
+            
+              <label>Qtd usada na receita:</label>
+            
+          </div>
+          
+          
           <div class="ingredient">
-            <input type="text" placeholder="Nome do Ingrediente" required>
-            <input type="number" placeholder="Qtd. por Quilo em Estoque (Kg)" required>
-            <input type="number" placeholder="Preço por Quilo (R$)" required>
-            <input type="number" placeholder="Qtd. Usada na Receita (g)" required>
+              <input type="text"  required>
+              
+              <input type="number" id="qtd_kilo"  required>
+              
+              <input type="number" id="preco_kilo"  required>
+             
+              <input type="number" id="qtd_receita"  required>
+              
           </div>
         </div>
         <button type="button" id="addIngredient">Adicionar Ingrediente</button>
 
         <!-- Serviços -->
         <div id="serviceList">
-          <label>Serviços:</label>
+          <div class="label">
+            
+            <label>Serviços:</label>
+        
+          
+            <label>Preço por hora:</label>
+          
+         
+            <label>Tempo de preparo:</label>
+          
+        </div>
+          
           <div class="service">
             <input type="text" placeholder="Tipo de Serviço" required>
-            <input type="number" placeholder="Qtd. de Horas Disponível" required>
+            <!--<input type="number" placeholder="Qtd. de Horas Disponível" required>-->
             <input type="number" placeholder="Preço por Hora (R$)" required>
             <input type="number" placeholder="Qtd. de Minutos para a Receita" required>
           </div>
