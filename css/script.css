@@ -5,40 +5,125 @@
 }
 
 body {
+  width: 100%;
+  height: 100vh;
   font-family: Arial, sans-serif;
-  background-color: #f8f8f8;
-  color: #333;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  background-color: #f8f8f8;
+  
 }
 
 body.dark-theme {
+  width: 100%;
+  height: 100vh;
   font-family: Arial, sans-serif;
-  background-color: #333;
-  color: #f8f8f8;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  background-color: #333;
+  color: #f8f8f8; 
 }
 
 
-header {
+/*header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
   background-color: #333;
   color: white;
+}*/
+
+.topo {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+
+
+.topo__marca a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+  text-decoration: none;
+  color: wheat;
+}
+
+.topo__marca img {
+  margin-right: 5px;
+}
+
+.topo__marca h1 {
+  font-size: 24px;
+}
+
+.top_fixed {
+  width: 100%;
+  height: 64px;
+  background-color: aliceblue;
+  font-weight: 500;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+
+
+
+.hero {
+ 
+  margin-top: 51px;
+  width: 100%;
+  height: 400px;
+  background-image: url('../image/Bolo-de-Chocolate-Facil.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: antiquewhite;
+}
+
+.hero__content {
+  width: 80%;
+  height: auto;
+  
+}
+
+.hero__content h1, .hero__content p {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: antiquewhite;
+}
+
+.hero__content h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: antiquewhite;
+}
+
+.hero__content p {
+  line-height: 34px;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+}
+
+
 
 .dark-theme header {
   background-color: #444;
@@ -223,12 +308,6 @@ input {
 .ingredient input, .service input{
   width: 23%;
 }
-
-
-
-
-
-
 
 button {
   padding: 10px 15px;
