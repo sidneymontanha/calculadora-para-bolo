@@ -1,72 +1,71 @@
-// Menu Responsivo (Hamburguer)
-const hamburger = document.querySelector('.hamburger');
-const menu = document.querySelector('.menu');
 
-hamburger.addEventListener('click', () => {
-  menu.classList.toggle('active');
-});
+document.addEventListener('DOMContentLoaded', function(){
+    const hamburger = document.querySelector('.hamburger');
+    const menu = document.querySelector('.menu');
 
-// Função para alternar entre as seções
-function showSection(sectionId) {
-  const sections = document.querySelectorAll('.section');
-  sections.forEach(section => {
-    section.style.display = 'none';  // Oculta todas as seções
-  });
-
-  const activeSection = document.getElementById(sectionId);
-  if (activeSection) {
-    activeSection.style.display = 'block';  // Mostra a seção ativa
-  }
-}
-
-// Adiciona o evento de clique aos links do menu para trocar de seção
-const menuLinks = document.querySelectorAll('.menu a');
-menuLinks.forEach(link => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault();  // Impede o comportamento padrão do link
-    const section = link.getAttribute('data-section');
-    showSection(section);  // Mostra a seção correspondente
-    menu.classList.remove('active');  // Fecha o menu em dispositivos móveis
-  });
-});
-
-// Mostra a seção inicial (Home)
-showSection('home');
-
-/* ================= Implementação da Troca de Tema ================= */
-
-// Função para alternar o tema
-function toggleTheme(theme) {
-  const body = document.body;
-  
-  // Aplica ou remove a classe 'dark-theme' com base no tema selecionado
-  if (theme === 'dark') {
-    body.classList.add('dark-theme');
-  } else {
-    body.classList.remove('dark-theme');
-  }
-
-  // Salva o tema escolhido no localStorage
-  localStorage.setItem('selectedTheme', theme);
-}
-
-// Recupera o tema salvo no localStorage ao carregar a página
-window.addEventListener('load', function() {
-  const savedTheme = localStorage.getItem('selectedTheme') || 'light';  // Padrão: claro
-  const themeSelector = document.getElementById('theme');
-
-  if (themeSelector) {
-    themeSelector.value = savedTheme;  // Define o valor do seletor
-    toggleTheme(savedTheme);  // Aplica o tema salvo
-
-    // Evento para trocar o tema quando o usuário selecionar uma opção
-    themeSelector.addEventListener('change', function() {
-      const selectedTheme = this.value;
-      toggleTheme(selectedTheme);
+    hamburger.addEventListener('click', () => {
+      menu.classList.toggle('active');
     });
-  }
-});
 
+    // Função para alternar entre as seções
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => {
+        section.style.display = 'none';  // Oculta todas as seções
+      });
+
+      const activeSection = document.getElementById(sectionId);
+      if (activeSection) {
+        activeSection.style.display = 'block';  // Mostra a seção ativa
+      }
+    }
+
+    // Adiciona o evento de clique aos links do menu para trocar de seção
+    const menuLinks = document.querySelectorAll('.menu a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();  // Impede o comportamento padrão do link
+        const section = link.getAttribute('data-section');
+        showSection(section);  // Mostra a seção correspondente
+        menu.classList.remove('active');  // Fecha o menu em dispositivos móveis
+      });
+    });
+
+    // Mostra a seção inicial (Home)
+    showSection('home');
+
+    // Função para alternar o tema
+    function toggleTheme(theme) {
+      const body = document.body;
+
+      // Aplica ou remove a classe 'dark-theme' com base no tema selecionado
+      if (theme === 'dark') {
+        body.classList.add('dark-theme');
+      } else {
+        body.classList.remove('dark-theme');
+      }
+
+      // Salva o tema escolhido no localStorage
+      localStorage.setItem('selectedTheme', theme);
+    }
+
+    // Recupera o tema salvo no localStorage ao carregar a página
+    window.addEventListener('load', function() {
+      const savedTheme = localStorage.getItem('selectedTheme') || 'light';  // Padrão: claro
+      const themeSelector = document.getElementById('theme');
+
+      if (themeSelector) {
+        themeSelector.value = savedTheme;  // Define o valor do seletor
+        toggleTheme(savedTheme);  // Aplica o tema salvo
+
+        // Evento para trocar o tema quando o usuário selecionar uma opção
+        themeSelector.addEventListener('change', function() {
+          const selectedTheme = this.value;
+          toggleTheme(selectedTheme);
+        });
+      }
+    });
+    
 /* ==================== Restante do Código JavaScript ==================== */
 
 // Adicionar novos campos de ingrediente
@@ -119,10 +118,10 @@ if (addServiceButton) {
     serviceName.placeholder = 'Tipo de Serviço';
     serviceName.required = true;
 
-    /*const serviceHours = document.createElement('input');
+    const serviceHours = document.createElement('input');
     serviceHours.type = 'number';
     serviceHours.placeholder = 'Qtd. de Horas Disponível';
-    serviceHours.required = true;*/
+    serviceHours.required = true;
 
     const servicePricePerHour = document.createElement('input');
     servicePricePerHour.type = 'number';
@@ -135,7 +134,7 @@ if (addServiceButton) {
     serviceMinutesUsed.required = true;
 
     div.appendChild(serviceName);
-    //div.appendChild(serviceHours);
+    div.appendChild(serviceHours);
     div.appendChild(servicePricePerHour);
     div.appendChild(serviceMinutesUsed);
 
@@ -144,6 +143,7 @@ if (addServiceButton) {
 }
 
 // Cálculo dos custos e preço de venda
+
 const recipeForm = document.getElementById('recipeForm');
 if (recipeForm) {
   recipeForm.addEventListener('submit', function(event) {
@@ -163,6 +163,7 @@ if (recipeForm) {
 
       // Cálculo do custo total por ingrediente (preço por grama * quantidade usada em gramas)
       totalCostIngredients += (pricePerGram * qtyUsedGrams);
+      console.log(totalCostIngredients)
     });
 
     // Cálculo do custo dos serviços
@@ -170,30 +171,32 @@ if (recipeForm) {
     let totalCostServices = 0;
 
     services.forEach(service => {
-      const pricePerHour = parseFloat(service.children[1].value);
-      const minutesUsed = parseFloat(service.children[2].value);
+      const pricePerHour = parseFloat(service.children[2].value);
+      const minutesUsed = parseFloat(service.children[3].value);
 
       // Converter minutos usados para horas
       const hoursUsed = minutesUsed / 60;
 
       // Cálculo do custo total por serviço (preço por hora * horas usadas)
       totalCostServices += (pricePerHour * hoursUsed);
+      console.log(totalCostServices)
     });
 
     // Custo total (ingredientes + serviços)
     const totalCost = totalCostIngredients + totalCostServices;
-
+      console.log(totalCost)
     // Obtendo a margem de lucro
     const profitMargin = parseFloat(document.getElementById('profitMargin').value);
 
     // Calculando o preço de venda com base na margem de lucro
     const sellingPrice = totalCost + (totalCost * (profitMargin / 100));
-    
+    console.log(sellingPrice)
     // Exibindo os resultados no HTML
-    document.getElementById('costValue').textContent = totalCost.toFixed(2);
-    document.getElementById('priceValue').textContent = sellingPrice.toFixed(2);
+    document.getElementById('costValue').innerHTML = totalCost.toFixed(2);
+    document.getElementById('priceValue').innerHTML = sellingPrice.toFixed(2);
   });
 }
+
 
 /* ==================== Conta de Usuário e Configurações ==================== */
 
@@ -258,4 +261,5 @@ if (settingsForm) {
     alert('Configurações salvas com sucesso!');
   });
 }
+})
 

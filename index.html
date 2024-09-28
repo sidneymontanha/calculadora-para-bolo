@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculadora de Custo e Lucro de Receitas de Bolo</title>
+  
   <link rel="stylesheet" href="css/script.css">
   <script defer src="js/script.js"></script>
 </head>
@@ -37,28 +38,28 @@
   <main id="content">
     <!-- Seção Home -->
     <section id="home" class="section">
-      <h1>Bem-vindo à Minha Marca</h1>
-      <p>Este é o conteúdo da página inicial.</p>
+      <h1 data-translate="homeTitle">Bem-vindo à Minha Marca</h1>
+      <p data-translate="homeText">Este é o conteúdo da página inicial.</p>
     </section>
 
     <!-- Seção Calculadora -->
     <section id="calculadora" class="section" style="display:none;">
-      <h1>Calculadora de Custo e Lucro</h1>
+      <h1 data-translate="calcTitle">Calculadora de Custo e Lucro</h1>
       <form id="recipeForm">
         <!-- Ingredientes -->
         <div id="ingredientList">
           <div class="label">
             
-              <label>Ingredientes:</label>
+              <label data-translate="ingredientLabel">Ingredientes:</label>
           
             
-              <label>Qtd de estoque:</label>
+              <label data-translate="qtdEstoqueLabel">Estoque:</label>
             
            
-              <label>Ppreço por kilo:</label>
+              <label data-translate="precoKiloLabel">Preço por kilo:</label>
             
             
-              <label>Qtd usada na receita:</label>
+              <label data-translate="qtdGramaReceLabel">Qtd usada na receita:</label>
             
           </div>
           
@@ -74,84 +75,86 @@
               
           </div>
         </div>
-        <button type="button" id="addIngredient">Adicionar Ingrediente</button>
+        <button type="button" id="addIngredient" data-translate="addIngredient">Adicionar Ingrediente</button>
 
         <!-- Serviços -->
         <div id="serviceList">
           <div class="label">
             
-            <label>Serviços:</label>
-        
+            <label data-translate="serviceLabel">Serviços:</label>
+            
+            <label data-translate="horaDispLabel">Horas:</label>
           
-            <label>Preço por hora:</label>
+            <label data-translate="precoHoraLabel">Preço por hora:</label>
           
          
-            <label>Tempo de preparo:</label>
+            <label data-translate="tempoPreparoLabel">Tempo de preparo:</label>
           
         </div>
           
           <div class="service">
-            <input type="text" placeholder="Tipo de Serviço" required>
-            <!--<input type="number" placeholder="Qtd. de Horas Disponível" required>-->
-            <input type="number" placeholder="Preço por Hora (R$)" required>
-            <input type="number" placeholder="Qtd. de Minutos para a Receita" required>
+            <input type="text" required>
+            <input type="number"  required>
+            <input type="number"  required>
+            <input type="number"  required>
           </div>
         </div>
-        <button type="button" id="addService">Adicionar Serviço</button>
+        <button type="button" id="addService" data-translate="addService">Adicionar Serviço</button>
 
         <!-- Margem de Lucro -->
-        <label for="profitMargin">Margem de Lucro (%):</label>
+        <label for="profitMargin" data-translate="profitMargin">Margem de Lucro (%):</label>
         <input type="number" id="profitMargin" placeholder="Ex: 30" required>
 
-        <button type="submit">Calcular Preço de Venda</button>
-      </form>
-      <div class="result">
-        <h2>Resultado:</h2>
-        <p id="totalCost">Custo Total (Ingredientes + Serviços): R$ <span id="costValue">0.00</span></p>
-        <p id="sellingPrice">Preço de Venda: R$ <span id="priceValue">0.00</span></p>
-      </div>
+        <button type="submit" data-translate="calcButton">Calcular Preço de Venda</button>
+
+        <div class="result">
+          <h2>Resultado:</h2>
+          <p id="totalCost" data-translate="totalCost">Custo Total (Ingredientes + Serviços): R$ <span id="costValue">0.00</span></p>
+          <p id="sellingPrice" data-translate="sellingPrice">Preço de Venda: R$ <span id="priceValue">0.00</span></p>
+        </div>
+      </form>  
     </section>
 
     <!-- Seção Conta de Usuário -->
 <section id="conta" class="section" style="display:none;">
-  <h1>Minha Conta de Usuário</h1>
+  <h1 data-translate="accountTitle">Minha Conta de Usuário</h1>
   <form id="userForm">
     <div class="user-profile">
       <img src="image/poker-vertical.png" alt="Avatar" id="userAvatar">
-      <label for="avatarUpload">Alterar Avatar:</label>
+      <label for="avatarUpload" data-translate="avatarUpload">Alterar Avatar:</label>
       <input type="file" id="avatarUpload">
     </div>
 
     <div class="form-group">
-      <label for="userName">Nome:</label>
+      <label for="userName" data-translate="userName">Nome:</label>
       <input type="text" id="userName" placeholder="Seu Nome" value="João da Silva" required>
     </div>
 
     <div class="form-group">
-      <label for="userEmail">Email:</label>
+      <label for="userEmail" data-translate="userEmail">Email:</label>
       <input type="email" id="userEmail" placeholder="email@exemplo.com" value="joao@exemplo.com" required>
     </div>
 
     <div class="form-group">
-      <label for="userPassword">Senha Atual:</label>
+      <label for="userPassword" data-translate="userPassword">Senha Atual:</label>
       <input type="password" id="userPassword" placeholder="********" required>
     </div>
 
     <div class="form-group">
-      <label for="newPassword">Nova Senha:</label>
+      <label for="newPassword" data-translate="newPassword">Nova Senha:</label>
       <input type="password" id="newPassword" placeholder="Nova senha">
     </div>
 
-    <button type="submit">Salvar Alterações</button>
+    <button type="submit" data-translate="saveChanges">Salvar Alterações</button>
   </form>
 </section>
 
 <!-- Seção Configurações -->
 <section id="configuracoes" class="section" style="display:none;">
-  <h1>Configurações</h1>
+  <h1 data-translate="settingsTitle">Configurações</h1>
   <form id="settingsForm">
     <div class="form-group">
-      <label for="language">Idioma:</label>
+      <label for="language" data-translate="languageLabel">Idioma:</label>
       <select id="language">
         <option value="pt">Português</option>
         <option value="en">Inglês</option>
@@ -160,7 +163,7 @@
     </div>
 
     <div class="form-group">
-      <label>Notificações:</label>
+      <label data-translate="notifications">Notificações:</label>
       <label for="emailNotifications">
         <input type="checkbox" id="emailNotifications" checked> Receber notificações por email
       </label>
@@ -170,19 +173,18 @@
     </div>
 
     <div class="form-group">
-      <label for="theme">Tema:</label>
+      <label for="theme" data-translate="themeLabel">Tema:</label>
       <select id="theme">
         <option value="light">Claro</option>
         <option value="dark">Escuro</option>
       </select>
     </div>
 
-    <button type="submit">Salvar Configurações</button>
+    <button type="submit" data-translate="saveSettings">Salvar Configurações</button>
   </form>
 </section>
 
-  </main>
-
+  </main> 
   
 </body>
 </html>
