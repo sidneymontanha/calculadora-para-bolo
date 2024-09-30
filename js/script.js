@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function(){
     const hamburger = document.querySelector('.hamburger');
     const menu = document.querySelector('.menu');
 
+    const hero = document.querySelector('.hero')
+
     hamburger.addEventListener('click', () => {
       menu.classList.toggle('active');
     });
@@ -12,11 +14,16 @@ document.addEventListener('DOMContentLoaded', function(){
       const sections = document.querySelectorAll('.section');
       sections.forEach(section => {
         section.style.display = 'none';  // Oculta todas as seções
+        
       });
 
       const activeSection = document.getElementById(sectionId);
-      if (activeSection) {
+      if (activeSection === home) {
         activeSection.style.display = 'block';  // Mostra a seção ativa
+        hero.style.display = 'block'
+      }else{
+        activeSection.style.display = 'block';
+        hero.style.display = 'none'
       }
     }
 

@@ -14,8 +14,6 @@ body {
   background-repeat: no-repeat;
   background-size: cover ;
   background-position: center center;
- 
-
   
 }
 
@@ -234,7 +232,8 @@ main {
 
 /* Seções */
 .section {
-  padding: 20px;
+  padding: 80px;
+  
 }
 
 .result {
