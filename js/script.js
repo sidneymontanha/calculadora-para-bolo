@@ -83,9 +83,26 @@ document.addEventListener('DOMContentLoaded', function(){
     conteudo.classList.remove('containerCalc-clear')
   })
 
+  const conteudo1 = document.querySelector('.container1')
 
- 
-    
+  conteudo1.addEventListener('mousemove', ()=>{
+    conteudo1.classList.add('container1-clear')
+  })
+
+  conteudo1.addEventListener('mouseout', ()=>{
+    conteudo1.classList.remove('container1-clear')
+  })
+
+  const conteudo2 = document.querySelector('.container2')
+
+  conteudo2.addEventListener('mousemove', ()=>{
+    conteudo2.classList.add('container2-clear')
+  })
+
+  conteudo2.addEventListener('mouseout', ()=>{
+    conteudo2.classList.remove('container2-clear')
+  })
+  
 /* ==================== Restante do Código JavaScript ==================== */
 
 // Adicionar novos campos de ingrediente

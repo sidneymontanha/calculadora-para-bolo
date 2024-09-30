@@ -50,6 +50,50 @@ body.dark-theme {
   opacity: 1.0;
 }
 
+.opa1{
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+.container1{
+  width: 100%;
+  height: 100%;
+  background-image: url(../image/poker-verticalred.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  opacity: 0.5;
+  transition: 2s;
+  padding: 50px;
+}
+
+.container1-clear{
+  opacity: 1.0;
+}
+
+.opa2{
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+.container2{
+  width: 100%;
+  height: 100%;
+  background-image: url(../image/Bolo-de-chocolate-recheado-de-ninho.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  opacity: 0.5;
+  transition: 2s;
+  padding: 100px;
+}
+
+.container2-clear{
+  opacity: 1.0;
+}
+
 
 /*header {
   display: flex;
