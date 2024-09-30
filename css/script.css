@@ -14,7 +14,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover ;
   background-position: center center;
- 
+} 
 
 body.dark-theme {
   width: 100%;
@@ -43,7 +43,7 @@ body.dark-theme {
   background-size: cover;
   opacity: 0.5;
   transition: 2s;
-  color: #333;
+  
 }
 
 .containerCalc-clear{
@@ -65,7 +65,7 @@ body.dark-theme {
   background-position: center center;
   opacity: 0.5;
   transition: 2s;
-  color: #333;
+ 
   padding: 50px;
 }
 
@@ -88,7 +88,7 @@ body.dark-theme {
   background-position: center center;
   opacity: 0.5;
   transition: 2s;
-  color: #333;
+  
   padding: 100px;
 }
 
@@ -449,4 +449,3 @@ button:hover {
 .form-group label {
   margin-top: 10px;
 }
-
