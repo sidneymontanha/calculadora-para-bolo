@@ -65,6 +65,19 @@ document.addEventListener('DOMContentLoaded', function(){
         });
       }
     });
+
+  const conteudo = document.querySelector('.containerCalc')
+
+  conteudo.addEventListener('mousemove', ()=>{
+    conteudo.classList.add('containerCalc-clear')
+  })
+
+  conteudo.addEventListener('mouseout', ()=>{
+    conteudo.classList.remove('containerCalc-clear')
+  })
+
+
+ 
     
 /* ==================== Restante do Código JavaScript ==================== */
 
@@ -78,22 +91,22 @@ if (addIngredientButton) {
     
     const ingredientName = document.createElement('input');
     ingredientName.type = 'text';
-    ingredientName.placeholder = 'Nome do Ingrediente';
+    ingredientName.placeholder = 'Ingrediente';
     ingredientName.required = true;
 
     const ingredientQtyPerKilo = document.createElement('input');
     ingredientQtyPerKilo.type = 'number';
-    ingredientQtyPerKilo.placeholder = 'Qtd. por Quilo em Estoque (Kg)';
+    ingredientQtyPerKilo.placeholder = 'Estoque';
     ingredientQtyPerKilo.required = true;
 
     const ingredientPricePerKilo = document.createElement('input');
     ingredientPricePerKilo.type = 'number';
-    ingredientPricePerKilo.placeholder = 'Preço por Quilo (R$)';
+    ingredientPricePerKilo.placeholder = 'Preço por Quilo';
     ingredientPricePerKilo.required = true;
 
     const ingredientQtyUsed = document.createElement('input');
     ingredientQtyUsed.type = 'number';
-    ingredientQtyUsed.placeholder = 'Qtd. Usada na Receita (g)';
+    ingredientQtyUsed.placeholder = 'Qtd. Usada na Receita';
     ingredientQtyUsed.required = true;
 
     div.appendChild(ingredientName);
@@ -115,22 +128,22 @@ if (addServiceButton) {
     
     const serviceName = document.createElement('input');
     serviceName.type = 'text';
-    serviceName.placeholder = 'Tipo de Serviço';
+    serviceName.placeholder = 'Serviços';
     serviceName.required = true;
 
     const serviceHours = document.createElement('input');
     serviceHours.type = 'number';
-    serviceHours.placeholder = 'Qtd. de Horas Disponível';
+    serviceHours.placeholder = 'Horas';
     serviceHours.required = true;
 
     const servicePricePerHour = document.createElement('input');
     servicePricePerHour.type = 'number';
-    servicePricePerHour.placeholder = 'Preço por Hora (R$)';
+    servicePricePerHour.placeholder = 'Preço por Hora';
     servicePricePerHour.required = true;
 
     const serviceMinutesUsed = document.createElement('input');
     serviceMinutesUsed.type = 'number';
-    serviceMinutesUsed.placeholder = 'Qtd. de Minutos para a Receita';
+    serviceMinutesUsed.placeholder = 'Tempo de preparo';
     serviceMinutesUsed.required = true;
 
     div.appendChild(serviceName);

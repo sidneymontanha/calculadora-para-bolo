@@ -10,7 +10,12 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f8f8f8;
+  background-image: url('../image/bolo-de-casamento-simples-6.jpg');
+  background-repeat: no-repeat;
+  background-size: cover ;
+  background-position: center center;
+ 
+
   
 }
 
@@ -20,8 +25,31 @@ body.dark-theme {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #333;
+  background-image: url('../image/bolo-de-casamento-simples-6.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
   color: #f8f8f8; 
+}
+
+.opa{
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+.containerCalc{
+  width: 100%;
+  height: 100%;
+  background-image: url(../image/4996fd8900e4900db5d8874cf4b35732.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.5;
+  transition: 2s;
+}
+
+.containerCalc-clear{
+  opacity: 1.0;
 }
 
 
@@ -66,26 +94,17 @@ body.dark-theme {
 .top_fixed {
   width: 100%;
   height: 64px;
-  background-color: aliceblue;
+  color: black;
   font-weight: 500;
   display: none;
   align-items: center;
   justify-content: center;
-  
-}
-
-
-
+ }
 
 .hero {
- 
   margin-top: 51px;
   width: 100%;
   height: 400px;
-  background-image: url('../image/Bolo-de-Chocolate-Facil.webp');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center bottom;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,13 +120,13 @@ body.dark-theme {
 .hero__content h1, .hero__content p {
   font-size: 24px;
   margin-bottom: 20px;
-  color: antiquewhite;
+  color: rgb(31, 30, 29);
 }
 
 .hero__content h2 {
   font-size: 32px;
   margin-bottom: 20px;
-  color: antiquewhite;
+  color: rgb(19, 18, 18);
 }
 
 .hero__content p {
@@ -258,7 +277,7 @@ main {
 }
 
 h1 {
-  color: #333;
+  color: rgb(31, 30, 29);
 }
 
 form {
@@ -332,6 +351,7 @@ h2 {
 
 p {
   font-size: 18px;
+  color: rgb(31, 30, 29);
 }
 
 /* Conta de Usuário */
