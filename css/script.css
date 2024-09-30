@@ -322,7 +322,7 @@ main {
 }
 
 h1 {
-  color: rgb(31, 30, 29);
+  color: black;
 }
 
 form {
@@ -391,12 +391,12 @@ button:hover {
 }
 
 h2 {
-  color: #555;
+  color: black;
 }
 
 p {
   font-size: 18px;
-  color: rgb(31, 30, 29);
+  color: black;
 }
 
 /* Conta de Usuário */
