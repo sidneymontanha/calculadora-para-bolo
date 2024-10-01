@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function(){
     const menu = document.querySelector('.menu');
 
     const hero = document.querySelector('.hero')
+    const patrocinio = document.querySelector('.patrocinios')
 
     hamburger.addEventListener('click', () => {
       menu.classList.toggle('active');
@@ -21,9 +22,11 @@ document.addEventListener('DOMContentLoaded', function(){
       if (activeSection === home) {
         activeSection.style.display = 'block';  // Mostra a seção ativa
         hero.style.display = 'block'
+        patrocinio.style.display = "flex"
       }else{
         activeSection.style.display = 'block';
         hero.style.display = 'none'
+        patrocinio.style.display = 'none'
       }
     }
 
