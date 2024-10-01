@@ -16,7 +16,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-image: url('../image/bolo-de-casamento-simples-6.jpg');
+  background-image: url('../image/bolo-caseiro5-1024x683.jpg');
   background-repeat: no-repeat;
   background-size: cover ;
   background-position: center center;
@@ -45,12 +45,24 @@ body.dark-theme {
   background-color: black;
 }
 
+.patrocinios{
+  display: flex;
+  justify-content: space-around;
+}
+
+.patrocinio{
+  width: 400px;
+  height: 200px;
+  border: 1px solid black;
+}
+
 .containerCalc{
   width: 100%;
   height: 100%;
   background-image: url(../image/4996fd8900e4900db5d8874cf4b35732.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  position: center center;
   opacity: 0.5;
   transition: 2s;
   
