@@ -223,8 +223,8 @@ const recipeForm = document.getElementById('recipeForm');
 
           // Cálculo do custo total por ingrediente (preço por unidade * quantidade usada convertida)
           totalCostIngredients += pricePerUnit * convertedQty;
-          console.log(convertedQty)
-          console.log(totalCostIngredients)   
+          //console.log(convertedQty)
+          //console.log(totalCostIngredients)   
       });
 
       // Cálculo do custo dos serviços
@@ -241,13 +241,13 @@ const recipeForm = document.getElementById('recipeForm');
 
         if (unit === 'mes') {
           convertedQty = qtyUsed / 60; // Converter minutos para horas
-          console.log(convertedQty)
+          //console.log(convertedQty)
         }
 
         // Cálculo do custo total por serviço (preço por unidade * quantidade usada convertida)
         totalCostServices += pricePerUnit / 220 * convertedQty;
 
-        console.log(totalCostServices)
+        //console.log(totalCostServices)
       });
 
       // Custo total (ingredientes + serviços)
