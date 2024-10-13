@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 
     // Mostra a seção inicial (Home)
-    showSection('home');
+    showSection('calculadora');
 
     // Função para alternar o tema
     function toggleTheme(theme) {
@@ -108,134 +108,163 @@ document.addEventListener('DOMContentLoaded', function(){
   
 /* ==================== Restante do Código JavaScript ==================== */
 
+ // Função para converter unidades de medida
+ function convertUnits(value, unit) {
+  switch (unit) {
+    case 'kg': return value / 1000; // Converter kg para gramas
+   
+    case 'l': return value / 1000; // Litros para mililitros
+   
+    case 'unit': return value; // Para "unitário", não converter
+    case 'dozen': return value / 12; // Converter dúzia para unidades
+    default: return value;
+  }
+}
+
 // Adicionar novos campos de ingrediente
 const addIngredientButton = document.getElementById('addIngredient');
-if (addIngredientButton) {
-  addIngredientButton.addEventListener('click', function() {
-    const ingredientList = document.getElementById('ingredientList');
-    const div = document.createElement('div');
-    div.className = 'ingredient';
-    
-    const ingredientName = document.createElement('input');
-    ingredientName.type = 'text';
-    ingredientName.placeholder = 'Ingrediente';
-    ingredientName.required = true;
+  if (addIngredientButton) {
+    addIngredientButton.addEventListener('click', function () {
+      const ingredientList = document.getElementById('ingredientList');
+      const div = document.createElement('div');
+      div.className = 'ingredient';
 
-    const ingredientQtyPerKilo = document.createElement('input');
-    ingredientQtyPerKilo.type = 'number';
-    ingredientQtyPerKilo.placeholder = 'Estoque';
-    ingredientQtyPerKilo.required = true;
+      const ingredientName = document.createElement('input');
+      ingredientName.type = 'text';
+      ingredientName.placeholder = 'Ingrediente';
+      ingredientName.required = true;
 
-    const ingredientPricePerKilo = document.createElement('input');
-    ingredientPricePerKilo.type = 'number';
-    ingredientPricePerKilo.placeholder = 'Preço por Quilo';
-    ingredientPricePerKilo.required = true;
+      const ingredientPricePerUnit = document.createElement('input');
+      ingredientPricePerUnit.type = 'number';
+      ingredientPricePerUnit.placeholder = 'Preço';
+      ingredientPricePerUnit.required = true;
 
-    const ingredientQtyUsed = document.createElement('input');
-    ingredientQtyUsed.type = 'number';
-    ingredientQtyUsed.placeholder = 'Qtd. Usada na Receita';
-    ingredientQtyUsed.required = true;
+      const ingredientQtyUsed = document.createElement('input');
+      ingredientQtyUsed.type = 'number';
+      ingredientQtyUsed.placeholder = 'Qtd. Usada';
+      ingredientQtyUsed.required = true;
 
-    div.appendChild(ingredientName);
-    div.appendChild(ingredientQtyPerKilo);
-    div.appendChild(ingredientPricePerKilo);
-    div.appendChild(ingredientQtyUsed);
+      const unitSelector = document.createElement('select');
+      unitSelector.innerHTML = `
+        <option value="kg">Kg</option>
+       
+        <option value="l">Litros</option>
+       
+        <option value="unit">Unitário</option>
+        <option value="dozen">Dúzia</option>
+      `;
 
-    ingredientList.appendChild(div);
-  });
-}
+      div.appendChild(ingredientName);
+      div.appendChild(unitSelector);
+      div.appendChild(ingredientPricePerUnit);
+      div.appendChild(ingredientQtyUsed);
+      
+
+      ingredientList.appendChild(div);
+    });
+  }
 
 // Adicionar novos campos de serviço
 const addServiceButton = document.getElementById('addService');
-if (addServiceButton) {
-  addServiceButton.addEventListener('click', function() {
-    const serviceList = document.getElementById('serviceList');
-    const div = document.createElement('div');
-    div.className = 'service';
-    
-    const serviceName = document.createElement('input');
-    serviceName.type = 'text';
-    serviceName.placeholder = 'Serviços';
-    serviceName.required = true;
+  if (addServiceButton) {
+    addServiceButton.addEventListener('click', function () {
+      const serviceList = document.getElementById('serviceList');
+      const div = document.createElement('div');
+      div.className = 'service';
 
-    const serviceHours = document.createElement('input');
-    serviceHours.type = 'number';
-    serviceHours.placeholder = 'Horas';
-    serviceHours.required = true;
+      const serviceName = document.createElement('input');
+      serviceName.type = 'text';
+      serviceName.placeholder = 'Serviço';
+      serviceName.required = true;
 
-    const servicePricePerHour = document.createElement('input');
-    servicePricePerHour.type = 'number';
-    servicePricePerHour.placeholder = 'Preço por Hora';
-    servicePricePerHour.required = true;
+      const servicePricePerUnit = document.createElement('input');
+      servicePricePerUnit.type = 'number';
+      servicePricePerUnit.placeholder = 'valor pago';
+      servicePricePerUnit.required = true;
 
-    const serviceMinutesUsed = document.createElement('input');
-    serviceMinutesUsed.type = 'number';
-    serviceMinutesUsed.placeholder = 'Tempo de preparo';
-    serviceMinutesUsed.required = true;
+      const serviceQtyUsed = document.createElement('input');
+      serviceQtyUsed.type = 'number';
+      serviceQtyUsed.placeholder = 'Qtd. Usada';
+      serviceQtyUsed.required = true;
 
-    div.appendChild(serviceName);
-    div.appendChild(serviceHours);
-    div.appendChild(servicePricePerHour);
-    div.appendChild(serviceMinutesUsed);
+      const unitSelector = document.createElement('select');
+      unitSelector.innerHTML = `
+        <option value="mes">Salário</option>
+      `;
 
-    serviceList.appendChild(div);
-  });
-}
+      div.appendChild(serviceName);
+      div.appendChild(unitSelector);
+      div.appendChild(servicePricePerUnit);
+      div.appendChild(serviceQtyUsed);
+     
+
+      serviceList.appendChild(div);
+    });
+  }
 
 // Cálculo dos custos e preço de venda
 
 const recipeForm = document.getElementById('recipeForm');
-if (recipeForm) {
-  recipeForm.addEventListener('submit', function(event) {
-    event.preventDefault();
+  if (recipeForm) {
+    recipeForm.addEventListener('submit', function (event) {
+      event.preventDefault();
 
+      // Cálculo do custo dos ingredientes
+      const ingredients = document.querySelectorAll('.ingredient');
+      let totalCostIngredients = 0;
 
-    // Cálculo do custo dos ingredientes
-    const ingredients = document.querySelectorAll('.ingredient');
-    let totalCostIngredients = 0;
-    
-    ingredients.forEach(ingredient => {
-      const pricePerKilo = parseFloat(ingredient.children[2].value);
-      const qtyUsedGrams = parseFloat(ingredient.children[3].value);
+      ingredients.forEach(ingredient => {
+        const unit = ingredient.children[1].value;
+        const pricePerUnit = parseFloat(ingredient.children[2].value);
+        const qtyUsed = parseFloat(ingredient.children[3].value);
 
-      // Converter preço por quilo para preço por grama
-      const pricePerGram = pricePerKilo / 1000;
+        // Converter a quantidade usada para gramas/ml/etc., se necessário
+        const convertedQty = convertUnits(qtyUsed, unit);
 
-      // Cálculo do custo total por ingrediente (preço por grama * quantidade usada em gramas)
-      totalCostIngredients += (pricePerGram * qtyUsedGrams);
-      console.log(totalCostIngredients)
+          // Cálculo do custo total por ingrediente (preço por unidade * quantidade usada convertida)
+          totalCostIngredients += pricePerUnit * convertedQty;
+          console.log(convertedQty)
+          console.log(totalCostIngredients)   
+      });
+
+      // Cálculo do custo dos serviços
+      const services = document.querySelectorAll('.service');
+      let totalCostServices = 0;
+
+      services.forEach(service => {
+        const unit = service.children[1].value;
+        const pricePerUnit = parseFloat(service.children[2].value);
+        const qtyUsed = parseFloat(service.children[3].value);
+        
+
+        let convertedQty = qtyUsed;
+
+        if (unit === 'mes') {
+          convertedQty = qtyUsed / 60; // Converter minutos para horas
+          console.log(convertedQty)
+        }
+
+        // Cálculo do custo total por serviço (preço por unidade * quantidade usada convertida)
+        totalCostServices += pricePerUnit / 220 * convertedQty;
+
+        console.log(totalCostServices)
+      });
+
+      // Custo total (ingredientes + serviços)
+      const totalCost = totalCostIngredients + totalCostServices;
+
+      // Obtendo a margem de lucro
+      const profitMargin = parseFloat(document.getElementById('profitMargin').value);
+
+      // Calculando o preço de venda com base na margem de lucro
+      const sellingPrice = totalCost + (totalCost * (profitMargin / 100));
+
+      // Exibindo os resultados no HTML
+      document.getElementById('costValue').textContent = totalCost.toFixed(2);
+      document.getElementById('priceValue').textContent = sellingPrice.toFixed(2);
     });
-
-    // Cálculo do custo dos serviços
-    const services = document.querySelectorAll('.service');
-    let totalCostServices = 0;
-
-    services.forEach(service => {
-      const pricePerHour = parseFloat(service.children[2].value);
-      const minutesUsed = parseFloat(service.children[3].value);
-
-      // Converter minutos usados para horas
-      const hoursUsed = minutesUsed / 60;
-
-      // Cálculo do custo total por serviço (preço por hora * horas usadas)
-      totalCostServices += (pricePerHour * hoursUsed);
-      console.log(totalCostServices)
-    });
-
-    // Custo total (ingredientes + serviços)
-    const totalCost = totalCostIngredients + totalCostServices;
-      console.log(totalCost)
-    // Obtendo a margem de lucro
-    const profitMargin = parseFloat(document.getElementById('profitMargin').value);
-
-    // Calculando o preço de venda com base na margem de lucro
-    const sellingPrice = totalCost + (totalCost * (profitMargin / 100));
-    console.log(sellingPrice)
-    // Exibindo os resultados no HTML
-    document.getElementById('costValue').innerHTML = totalCost.toFixed(2);
-    document.getElementById('priceValue').innerHTML = sellingPrice.toFixed(2);
-  });
-}
+  }
+});
 
 
 /* ==================== Conta de Usuário e Configurações ==================== */
@@ -301,5 +330,5 @@ if (settingsForm) {
     alert('Configurações salvas com sucesso!');
   });
 }
-})
+
 
