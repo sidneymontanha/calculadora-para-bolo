@@ -73,6 +73,7 @@
         <div class="containerCalc">
       <h1 data-translate="calcTitle">Calculadora de Custo e Lucro</h1>
       <form id="recipeForm">
+        <h1 data-translate="addIngredientTitle">Adicione os Ingredientes para a Receita</h1>
         <!-- Ingredientes -->
         <div id="ingredientList">
           <div class="label">
@@ -92,7 +93,7 @@
           
           
           <div class="ingredient">
-              <input type="text"  required>
+              <input type="text" placeholder="Ex: trigo" required>
 
               <select id="sectorUnit">
                 <option value="kg">Kg</option>
@@ -103,43 +104,45 @@
                 <option value="dozen">Dúzia</option>
               </select>
              
-              <input type="number" id="preco_kilo"  required>
+              <input type="number" step="0.01" id="preco_kilo" placeholder="Ex: 10" required>
              
-              <input type="number" id="qtd_receita"  required>
+              <input type="number" step="0.01" id="qtd_receita" placeholder="Ex: 250" required>
   
           </div>
         </div>
         <button type="button" id="addIngredient" data-translate="addIngredient">Adicionar Ingrediente</button>
 
         <!-- Serviços -->
+        <h1 data-translate="addSerciceTitle">Adicione trabalhador e o tempo empregados na Receita</h1>
         <div id="serviceList">
           <div class="label">
             
-            <label data-translate="serviceLabel">Serviços:</label>
+            <label data-translate="serviceLabel">Serviços/Prolabore:</label>
             
             <label data-translate="horaDispLabel">Pagamentos:</label>
           
             <label data-translate="precoHoraLabel">Valor Mensal:</label>
           
          
-            <label data-translate="tempoPreparoLabel">Tempo de preparo:</label>
+            <label data-translate="tempoPreparoLabel">Tempo de preparo em minutos:</label>
           
-        </div>
+          </div>
           
           <div class="service">
-            <input type="text" required>
+            <input type="text" placeholder="Ex: Padeiro/Caixa/ect..." required>
             <select id="sectorServi">
               <option value="mes">Salário</option>
-              
+              <option value="mes">prolabore</option>
             </select>
-            <input type="number"  required>
-            <input type="number"  required>
+            <input type="number" step="0.01" placeholder="Ex: 1500" required>
+            <input type="number" step="0.01" placeholder="Ex: 40"  required>
           </div>
-        </div>
-        <button type="button" id="addService" data-translate="addService">Adicionar Serviço e Prolabore</button>
+          </div>
+          <button type="button" id="addService" data-translate="addService">Adicionar Serviço e Prolabore</button>
 
         
         <!-- Margem de Lucro -->
+        <h1 data-translate="addMargemTitle">Adicione qual a Margem de Lucro Desejada</h1>
         <label for="profitMargin" data-translate="profitMargin">Margem de Lucro (%):</label>
         <input type="number" id="profitMargin" placeholder="Ex: 30" required>
 

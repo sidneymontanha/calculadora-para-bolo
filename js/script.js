@@ -131,17 +131,19 @@ const addIngredientButton = document.getElementById('addIngredient');
 
       const ingredientName = document.createElement('input');
       ingredientName.type = 'text';
-      ingredientName.placeholder = 'Ingrediente';
+      ingredientName.placeholder = 'Ex: trigo';
       ingredientName.required = true;
 
       const ingredientPricePerUnit = document.createElement('input');
       ingredientPricePerUnit.type = 'number';
-      ingredientPricePerUnit.placeholder = 'Preço';
+      ingredientPricePerUnit.step = '0.01';
+      ingredientPricePerUnit.placeholder = 'Ex: 10';
       ingredientPricePerUnit.required = true;
 
       const ingredientQtyUsed = document.createElement('input');
       ingredientQtyUsed.type = 'number';
-      ingredientQtyUsed.placeholder = 'Qtd. Usada';
+      ingredientQtyUsed.step = '0.01';
+      ingredientQtyUsed.placeholder = 'Ex: 250';
       ingredientQtyUsed.required = true;
 
       const unitSelector = document.createElement('select');
@@ -174,22 +176,25 @@ const addServiceButton = document.getElementById('addService');
 
       const serviceName = document.createElement('input');
       serviceName.type = 'text';
-      serviceName.placeholder = 'Serviço';
+      serviceName.placeholder = 'Ex: Padeiro/caixa/etc...';
       serviceName.required = true;
 
       const servicePricePerUnit = document.createElement('input');
       servicePricePerUnit.type = 'number';
-      servicePricePerUnit.placeholder = 'valor pago';
+      servicePricePerUnit.step =  '0.01';
+      servicePricePerUnit.placeholder = 'Valor Pago';
       servicePricePerUnit.required = true;
 
       const serviceQtyUsed = document.createElement('input');
       serviceQtyUsed.type = 'number';
-      serviceQtyUsed.placeholder = 'Qtd. Usada';
+      serviceQtyUsed.step = '0.01';
+      serviceQtyUsed.placeholder = 'Ex: 40';
       serviceQtyUsed.required = true;
 
       const unitSelector = document.createElement('select');
       unitSelector.innerHTML = `
         <option value="mes">Salário</option>
+        <option value="mes">prolabore</option>
       `;
 
       div.appendChild(serviceName);
