@@ -194,7 +194,7 @@ const addServiceButton = document.getElementById('addService');
       const unitSelector = document.createElement('select');
       unitSelector.innerHTML = `
         <option value="mes">Salário</option>
-        <option value="mes">prolabore</option>
+        <option value="mes1">prolabore</option>
       `;
 
       div.appendChild(serviceName);
@@ -248,7 +248,10 @@ const recipeForm = document.getElementById('recipeForm');
           convertedQty = qtyUsed / 60; // Converter minutos para horas
           //console.log(convertedQty)
         }
-
+        if (unit === 'mes1'){
+          convertedQty = qtyUsed / 60; // Converter minutos para horas
+        } 
+        
         // Cálculo do custo total por serviço (preço por unidade * quantidade usada convertida)
         totalCostServices += pricePerUnit / 220 * convertedQty;
 
@@ -264,9 +267,48 @@ const recipeForm = document.getElementById('recipeForm');
       // Calculando o preço de venda com base na margem de lucro
       const sellingPrice = totalCost + (totalCost * (profitMargin / 100));
 
+      const profitPerrecipe = sellingPrice - totalCost
+
+      const totalpocao = parseFloat(document.getElementById('profitPorcoes').value)
+
+      let addPrecent = 20
+
+      const pricePocao = sellingPrice / totalpocao * (1 + addPrecent/100)
+
+      
       // Exibindo os resultados no HTML
       document.getElementById('costValue').textContent = totalCost.toFixed(2);
       document.getElementById('priceValue').textContent = sellingPrice.toFixed(2);
+      document.getElementById('pricePorcaoValue').textContent = pricePocao.toFixed(2);
+
+      let prolaboreTarget = 0
+
+      services.forEach(service => {
+        const unit = service.children[1].value;
+        const pricePerUnit = parseFloat(service.children[2].value);
+        const qtyUsed = parseFloat(service.children[3].value);
+        
+
+        let convertarg = pricePerUnit;
+
+        if (unit === 'mes1'){
+          convertarg = convertarg
+        } 
+        
+        // Cálculo do custo total por serviço (preço por unidade * quantidade usada convertida)
+        prolaboreTarget += convertarg;
+
+        //console.log(totalCostServices)
+      });
+
+        
+      console.log(prolaboreTarget)
+      const recipesNeeded = prolaboreTarget / profitPerrecipe
+      const recipesPorcNeeded = prolaboreTarget / pricePocao
+      console.log(recipesNeeded)
+      document.getElementById('totRecipesMes').innerHTML = Math.ceil(recipesNeeded)+5;
+      document.getElementById('totRecipesPorcaoMes').innerHTML = Math.ceil(recipesPorcNeeded)+5;
+
     });
   }
 });

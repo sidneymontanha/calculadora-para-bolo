@@ -65,7 +65,7 @@ body.dark-theme {
   position: center center;
   opacity: 0.5;
   transition: 2s;
-  
+  padding: 20px;
 }
 
 .containerCalc-clear{
@@ -88,7 +88,7 @@ body.dark-theme {
   opacity: 0.5;
   transition: 2s;
  
-  padding: 50px;
+  padding: 60px;
 }
 
 .container1-clear{
@@ -306,7 +306,7 @@ main {
 }
 
 .result {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 /* Responsividade */
@@ -347,17 +347,17 @@ main {
 
 h1 {
   color: rgb(5, 5, 1);
-  margin-top: 20px;
-  
+  margin-top: 5px;
+  margin-left: 5px;
 }
 
 form {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 label {
   display: block;
-  margin: 10px 0 5px;
+  margin: 0px 0 5px;
   font-weight: bold;
   position: relative;
 }

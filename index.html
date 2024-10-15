@@ -139,7 +139,11 @@
           </div>
           </div>
           <button type="button" id="addService" data-translate="addService">Adicionar Serviço e Prolabore</button>
-
+        <div>
+          <h1 data-translate="addfracoesTitle">indique Quantas Porções Rendem essa Receita</h1>
+          <label for="profitPorcoes" data-translate="profitPorcoes">Rendimento da Receita:</label>
+          <input type="number" id="profitPorcoes" placeholder="Ex: 30" required>
+        </div>
         
         <!-- Margem de Lucro -->
         <h1 data-translate="addMargemTitle">Adicione qual a Margem de Lucro Desejada</h1>
@@ -152,6 +156,9 @@
           <h2>Resultado:</h2>
           <p id="totalCost" data-translate="totalCost">Custo Total (Ingredientes + Serviços): R$ <span id="costValue">0.00</span></p>
           <p id="sellingPrice" data-translate="sellingPrice">Preço de Venda: R$ <span id="priceValue">0.00</span></p>
+          <p id="sellingPricePorcao" data-translate="sellingPricePorcao">Preço de Venda da Porção: R$ <span id="pricePorcaoValue">0.00</span></p>
+          <p id="recipesNeeded" data-translate="recipesNeeded">Total de Receitas para Atingir a Meta: <span id="totRecipesMes">0.00</span></p>
+          <p id="recipesPorcaoNeeded" data-translate="recipesPorcaoNeeded">Total de Porções para Atingir a Meta: <span id="totRecipesPorcaoMes">0.00</span></p>
         </div>
       </form>  
     </section>
